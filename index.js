@@ -5,7 +5,7 @@ app.use(express.json())
 
 app.post("/webhook", function (req, res){
     console.log('req',req.body)
-    res.send('test response')
+    res.send('test response2')
   })
   
 app.get("/",function(req, res){
@@ -18,3 +18,5 @@ app.listen(port,()=>{
 });
 
 //https://github.com/YashVashisth772/node_server_test.git
+
+module.exports = app
