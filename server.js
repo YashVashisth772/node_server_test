@@ -8,7 +8,9 @@ app.post("/webhook", function (req, res){
     res.send('test response')
   })
   
-
+app.get("/",function(req, res){
+  return res.send('my app is running')
+})
 let port = process.env.PORT || 9001
 
 app.listen(port,()=>{
