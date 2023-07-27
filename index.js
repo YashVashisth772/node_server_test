@@ -5,7 +5,7 @@ app.use(express.json())
 
 app.post("/webhook", function (req, res){
     console.log('req',req.body)
-    res.send('test response2')
+    res.send(req.body)
   })
   
 app.get("/",function(req, res){
