@@ -23,6 +23,7 @@ const io = new Server(server, {
         origin: ['https://chat-app-socket-io-delta.vercel.app/','http://localhost:3000'],
         credentials: true,
         methods: ["GET", "POST"],
+        allowedHeaders: ['Access-Control-Allow-Origin']
     },
 });
 io.on("connection", (socket) => {
