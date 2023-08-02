@@ -1,20 +1,26 @@
 const express = require("express");
-var cors = require('cors')
+let cors = require('cors')
 const http = require("http");
 const { Server } = require("socket.io");
-var morgan = require('morgan')
+let morgan = require('morgan')
 
 
 const app = express();
 const server = http.createServer(app);
 app.use(morgan('tiny'))
-app.use(cors())
 app.use(express.json())
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions))
 
 const io = new Server(server, {
   allowEIO3: true,
     cors: {
-        origin: true,
+        origin: ['https://chat-app-socket-io-delta.vercel.app/','http://localhost:3000'],
         credentials: true,
         methods: ["GET", "POST"],
     },
