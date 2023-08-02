@@ -37,7 +37,7 @@ io.on("connection", (socket) => {
 });
 app.post("/webhook", async function (req, res){    
     const sockets = await io.fetchSockets();
-
+  console.info('test sockets',sockets,sockets.length);
     sockets.forEach((socket)=>socket.emit("send_message",req.body))
     res.send(req.body)
   })
@@ -45,7 +45,7 @@ app.post("/webhook", async function (req, res){
 app.get("/",function(req, res){
   return res.send('my app is running')
 })
-let port = process.env.PORT || 9001
+let port = 9001
 
 server.listen(port,()=>{
     console.info("test Example app listening on port 9001! Go to http://localhost:9001/",port );
