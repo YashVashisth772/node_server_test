@@ -10,7 +10,7 @@ const server = http.createServer(app);
 app.use(morgan('tiny'))
 app.use(express.json())
 const corsOptions ={
-  origin:'*', 
+  origin:['https://chat-app-socket-io-delta.vercel.app/','http://localhost:3000'], 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200,
 }
