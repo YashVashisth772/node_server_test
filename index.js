@@ -16,7 +16,7 @@ const corsOptions ={
 }
 
 app.use(cors(corsOptions))
-app.options('*', cors()) 
+app.options('*', cors(corsOptions)) 
 
 const io = new Server(server, {
   allowEIO3: true,
