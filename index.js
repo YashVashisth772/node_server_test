@@ -12,10 +12,12 @@ app.use(cors())
 app.use(express.json())
 
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-  },
+  allowEIO3: true,
+    cors: {
+        origin: true,
+        credentials: true,
+        methods: ["GET", "POST"],
+    },
 });
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
