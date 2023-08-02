@@ -24,7 +24,8 @@ const io = new Server(server, {
         origin: ['https://chat-app-socket-io-delta.vercel.app/','http://localhost:3000'],
         credentials: true,
         methods: ["GET", "POST"],
-        allowedHeaders: ['Access-Control-Allow-Origin']
+        allowedHeaders: ['Access-Control-Allow-Origin'],
+        'force new connection': true,
     },
 });
 io.on("connection", (socket) => {
@@ -33,6 +34,9 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log("User Disconnected", socket.id);
+  });
+  socket.on("reconnect", () => {
+    console.log("User Reconnected", socket.id);
   });
 });
 app.post("/webhook", async function (req, res){    
