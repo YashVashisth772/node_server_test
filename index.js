@@ -30,15 +30,14 @@ const logger = winston.createLogger({
 // app.options('*', cors(corsOptions)) 
 
 const io = new Server(server, {
-  // allowEIO3: true,
     cors: {
         origin: ['https://chat-app-socket-io-delta.vercel.app','http://localhost:3000'],
-        // credentials: true,
-        methods: ["GET", "POST"],
-        allowedHeaders: ['Access-Control-Allow-Origin'],
-        // 'force new connection': true,
     },
 });
+//        allowedHeaders: ['Access-Control-Allow-Origin'],
+// methods: ["GET", "POST"],
+// credentials: true,
+        // 'force new connection': true,
 io.on("connection", (socket) => {
   logger.info(`User Connected: ${socket.id}`);
 
