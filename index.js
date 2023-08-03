@@ -27,7 +27,7 @@ const logger = winston.createLogger({
   ],
 });
 
-// app.options('*', cors(corsOptions)) 
+app.options('*', cors()) 
 
 const io = new Server(server, {
     cors: {
