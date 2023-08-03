@@ -30,8 +30,7 @@ const logger = winston.createLogger({
 app.options('*', cors())
 
 const io = new Server(server, {
-  cors: { origin: "*", }, path: "/socket.io/", secure: true, timeout: 60000,
-
+  cors: { origin: "*", }
 });
 // cors: {
 //     origin: ['https://chat-app-socket-io-delta.vercel.app','http://localhost:3000'],
